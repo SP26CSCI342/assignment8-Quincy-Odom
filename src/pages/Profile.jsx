@@ -35,8 +35,9 @@ function Profile() {
   const handleLogout = async () => {
 
     const token = localStorage.getItem("token")
+    const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
     try {
-      const response = await fetch("/api/logout", {
+      const response = await fetch(`${baseURL}/api/logout`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`
